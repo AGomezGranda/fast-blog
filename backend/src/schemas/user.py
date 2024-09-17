@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import List
 
-from backend.src.models.posts import Posts
+from src.models.posts import Posts
 
 class UserBase(BaseModel):
     email: EmailStr
@@ -20,3 +20,11 @@ class User(UserBase):
     class Config:
         orm_mode = True
         
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    email: str = None
+    username: str = None
+    is_superuser: bool = None

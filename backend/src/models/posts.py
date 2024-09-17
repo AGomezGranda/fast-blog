@@ -3,8 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 
-from db.database import Base
-
+from src.db.database import Base
 
 class Posts(Base):
     __tablename__ = 'posts'

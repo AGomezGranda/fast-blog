@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
+from src.api.api import api_router
 
 app = FastAPI()
 app.add_middleware(
