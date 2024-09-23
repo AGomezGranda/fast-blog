@@ -5,8 +5,10 @@ class BlogPostBase(BaseModel):
     title: str
     content: str
 
+
 class BlogPostCreate(BlogPostBase):
     pass
+
 
 class BlogPost(BlogPostBase):
     uuid: str

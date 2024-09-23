@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import List
 
-from src.models.posts import Posts
+# from src.models.posts import Posts
 
 class UserBase(BaseModel):
     email: EmailStr
@@ -15,7 +15,7 @@ class User(UserBase):
     is_active: bool
     is_superuser: bool
     created_at: str
-    posts: List[Posts] = []
+    # posts: List[Posts] = []
 
     class Config:
         orm_mode = True

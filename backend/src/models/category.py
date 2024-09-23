@@ -3,23 +3,21 @@ from sqlalchemy.orm import relationship
 
 from db.database import Base
 
+post_category_association = Table(
+    'post_category_association',
+    Base.metadata,
+    Column('post_id', ForeignKey('posts.uuid'), primary_key=True),
+    Column('category_id', ForeignKey('categories.id'), primary_key=True)
+)
 
 class Category(Base):
     __tablename__ = 'categories'
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True, unique=True)
-    description = Column(String)
-    parent_id = Column(Integer, ForeignKey('categories.id'))
 
     # relationship
-    children = relationship("Category")
-    posts = relationship("Posts", back_populates="category")
+    posts = relationship("Posts",
+                         secondary=post_category_association,
+                         back_populates="category")
 
-
-post_category_association = Table(
-    'post_category', Base.metadata,
-    Column('post_id', Integer, ForeignKey('posts.id'), primary_key=True),
-    Column('category_id', Integer, ForeignKey(
-        'categories.id'), primary_key=True)
-)

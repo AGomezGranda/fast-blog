@@ -1,9 +1,10 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, String, Text, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
 
 from src.db.database import Base
+
 
 class Posts(Base):
     __tablename__ = 'posts'
@@ -14,7 +15,6 @@ class Posts(Base):
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)
 
-    # relationship
     author = relationship("User", back_populates="posts")
     category = relationship(
         "Category",
