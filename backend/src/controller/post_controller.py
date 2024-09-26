@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from src.models.posts import Posts
-from src.schemas.posts import BlogPost, BlogPostCreate, BlogPostBase
+from src.schemas.posts import BlogPost, BlogPostCreate
 
 
 def get_all_posts(db: Session):

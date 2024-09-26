@@ -1,16 +1,7 @@
 from pydantic import BaseModel
 
 
-class BlogPostBase(BaseModel):
-    title: str
-    content: str
-
-
-class BlogPostCreate(BlogPostBase):
-    pass
-
-
-class BlogPost(BlogPostBase):
+class BlogPost(BaseModel):
     uuid: str
     author: str
     created_at: str
@@ -18,3 +9,8 @@ class BlogPost(BlogPostBase):
 
     class Config:
         orm_mode = True
+
+
+class BlogPostCreate(BlogPost):
+    title: str
+    content: str

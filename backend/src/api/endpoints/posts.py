@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from src.controller.post_controller import get_all_posts, get_post_by_uuid, create_post, update_post, delete_post
+from src.controller.post_controller import get_all_posts, get_post_by_uuid
 from src.controller.user_controller import get_current_user
 from src.models.user import User
-from src.schemas.posts import BlogPost, BlogPostCreate, BlogPostBase
+from src.schemas.posts import BlogPost, BlogPostCreate
 
 from src.db.database import get_db
 

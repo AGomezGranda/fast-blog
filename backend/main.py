@@ -1,7 +1,8 @@
-from typing import Union
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from src.api.api import api_router
+
+from src.db.database import Base, engine
 
 app = FastAPI()
 app.add_middleware(
@@ -19,3 +20,6 @@ def read_root():
     return {
         "message": "Welcome to fast blog"
     }
+
+# Create database tables
+Base.metadata.create_all(bind=engine)

@@ -1,20 +1,24 @@
-from sqlalchemy import Column, DateTime, ForeignKey, String, Text
+from sqlalchemy import Column, String, Text, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import UUID
+from src.db.database import Base
 from datetime import datetime
 import uuid
-from db.database import Base
 
 
 class Comment(Base):
     __tablename__ = 'comments'
 
-    uuid = Column(String, primary_key=True, default=uuid.uuid4, index=True)
+    # uuid = Column(String, primary_key=True, default=lambda: str(uuid4()), index=True)
+    uuid = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
     content = Column(Text)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)
 
-    # relationship
-    author_id = Column(String, ForeignKey('users.uuid'))
-    post_id = Column(String, ForeignKey('posts.uuid'))
+    # Foreign keys
+    author_id = Column(UUID, ForeignKey('users.uuid'))
+    post_id = Column(UUID, ForeignKey('posts.uuid'))
+
+    # Relationships
     author = relationship("User", back_populates="comments")
     post = relationship("Posts", back_populates="comments")
