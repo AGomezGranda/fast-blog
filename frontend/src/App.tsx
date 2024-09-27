@@ -1,13 +1,22 @@
-// import { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./app/Login";
+import LandingPage from "./app/LandingPage";
+import Register from "./app/Register";
+import Posts from "./app/Posts";
 
 function App() {
   return (
-    <>
-      <h1>Welcome to Fast Blog</h1>
-      <div className="card">
-        <p className="read-the-docs">Every post is a Markdown file.</p>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Route to posts the user should be authenticated */}
+        <Route path="/posts" element={<Posts />} />
+      </Routes>
+    </Router>
   );
 }
 
