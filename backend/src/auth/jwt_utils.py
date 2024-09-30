@@ -28,10 +28,11 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
 def verify_access_token(token: str):
     try:
+        print("verify_token:", token)
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        print("payload:", payload)
         return payload
     except jwt.ExpiredSignatureError:
         return None
     except jwt.InvalidTokenError:
         return None
-

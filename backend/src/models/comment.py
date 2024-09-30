@@ -16,8 +16,8 @@ class Comment(Base):
     updated_at = Column(DateTime, default=datetime.now)
 
     # Foreign keys
-    author_id = Column(UUID, ForeignKey('users.uuid'))
-    post_id = Column(UUID, ForeignKey('posts.uuid'))
+    author_id = Column(UUID(as_uuid=True), ForeignKey('users.uuid'))
+    post_id = Column(UUID(as_uuid=True), ForeignKey('posts.uuid'))
 
     # Relationships
     author = relationship("User", back_populates="comments")

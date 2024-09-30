@@ -16,7 +16,7 @@ class Posts(Base):
     content = Column(Text)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)
-    author_id = Column(UUID, ForeignKey('users.uuid'))
+    author_id = Column(UUID(as_uuid=True), ForeignKey('users.uuid'))
 
     author = relationship("User", back_populates="posts")
     categories = relationship(

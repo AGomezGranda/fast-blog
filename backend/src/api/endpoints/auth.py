@@ -8,6 +8,11 @@ from src.schemas.user import Token, UserCreate, UserBase
 
 router = APIRouter()
 
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from typing import Annotated
+from datetime import timedelta
+
+
 #register
 @router.post("/register", response_model=Token)
 def register(user_in: UserCreate, db: Session = Depends(get_db)):

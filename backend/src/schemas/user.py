@@ -25,6 +25,6 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    email: str = None
-    username: str = None
-    is_superuser: bool = None
+    email: str
+    username: str
+    is_superuser: bool

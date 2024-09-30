@@ -7,16 +7,14 @@ import Posts from "./app/Posts";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-        {/* Route to posts the user should be authenticated */}
-        <Route path="/posts" element={<Posts />} />
-      </Routes>
-    </Router>
+      {/* Route to posts the user should be authenticated */}
+      <Route path="/posts" element={<Posts />} />
+    </Routes>
   );
 }
 

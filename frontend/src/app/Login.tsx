@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api.ts";
+import { useAuth } from "../context/AuthContext.tsx";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const { setToken } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,7 +18,10 @@ const LoginPage = () => {
     try {
       const response = await login({ email, password });
       console.log("Login successful", response);
-      localStorage.setItem("token", response.access_token);
+
+      // localStorage.setItem("token", response.access_token);
+      setToken(response.access_token);
+
       navigate("/posts");
     } catch (err) {
       setError("Login failed. Please check your credentials.");
@@ -81,7 +87,7 @@ const LoginPage = () => {
             Don't have an account?{" "}
             <a
               href="/register"
-              className="font-medium text-orange-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300"
+              className="font-medium text-red-800 hover:text-gray-600 dark:hover:text-gray-300"
             >
               Sign up
             </a>
