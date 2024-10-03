@@ -13,6 +13,7 @@ class Posts(Base):
     # uuid = Column(String, primary_key=True, default=uuid.uuid4, index=True)
     uuid = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
     title = Column(String, index=True)
+    description = Column(Text)
     content = Column(Text)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)

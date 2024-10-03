@@ -51,3 +51,21 @@ export async function login(
 
   return response.json();
 }
+
+export async function getCurrentUser(token: string): Promise<any> {
+  const response = await fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch user");
+  }
+
+  return response.json();
+};
+
+

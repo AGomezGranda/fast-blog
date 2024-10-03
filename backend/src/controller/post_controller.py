@@ -28,6 +28,7 @@ def create_post_controller(post_in: BlogPostBase, db: Session, current_user):
 
 def update_post(db: Session, db_post: Posts, post_in: BlogPostBase):
     db_post.title = post_in.title
+    db_post.description = post_in.description
     db_post.content = post_in.content
     db.commit()
     db.refresh(db_post)

@@ -5,6 +5,7 @@ from uuid import UUID
 
 class BlogPostBase(BaseModel):
     title: str
+    description: str
     content: str
 
 class BlogPostCreate(BlogPostBase):
@@ -26,4 +27,5 @@ class BlogPostResponse(BaseModel):
     created_at: datetime  # Cambia el tipo a string
     updated_at: datetime  # Cambia el tipo a string
     title: str
+    description: str
     content: str

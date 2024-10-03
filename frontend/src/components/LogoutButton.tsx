@@ -6,10 +6,15 @@ const LogoutButton: React.FC = () => {
 
   const handleLogout = () => {
     logout();
+
+    window.location.href = "/";
   };
 
   return (
-    <button onClick={handleLogout} className="btn btn-primary">
+    <button
+      onClick={handleLogout}
+      className="bg-red-800 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300"
+    >
       Logout
     </button>
   );
