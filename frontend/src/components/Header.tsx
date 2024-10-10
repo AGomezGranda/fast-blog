@@ -29,7 +29,7 @@ const Header: React.FC = () => {
                 <div className="space-x-4">
                     {token ? (
                         <>
-                            <span className="text-gray-800">Welcome, {username}</span>
+                            <span className="text-gray-800 dark:text-white">Welcome, {username}</span>
                             <LogoutButton />
                         </>
                     ) : (

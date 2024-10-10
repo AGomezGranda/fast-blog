@@ -59,7 +59,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
                         <h2 className="text-3xl font-semibold text-gray-800">Create New Post</h2>
                         <button
                             onClick={() => window.history.back()}
-                            className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+                            className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                         >
                             Back to Posts
                         </button>
@@ -137,7 +137,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ onPostCreated }) => {
                         <div className="flex items-center justify-between">
                             <button
                                 type="submit"
-                                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                             >
                                 Create Post
                             </button>

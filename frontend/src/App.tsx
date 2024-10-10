@@ -5,6 +5,7 @@ import LandingPage from "./app/LandingPage";
 import Register from "./app/Register";
 import Posts from "./app/Posts";
 import CreatePost from "./app/CreatePost";
+import ViewPost from "./app/ViewPost";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
       <Route path="/posts" element={<Posts />} />
       <Route path="/posts/create" element={<CreatePost onPostCreated={function (): void {
         throw new Error("Function not implemented.");
-      } } />}></Route>
+      } }/>}></Route>
+
+      <Route path="/posts/:uuid" element={<ViewPost />} />
     </Routes>
   );
 }

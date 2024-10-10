@@ -31,7 +31,9 @@ const Preview: React.FC<PreviewProps> = ({ content }) => {
         );
     };
 
-    return <div>{renderContent(contentTree)}</div>;
+    return <div
+        className='prose dark:prose-invert max-w-none'
+    >{renderContent(contentTree)}</div>;
 };
 
 export default Preview;
