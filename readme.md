@@ -13,8 +13,8 @@ You can find the frontend code in the `frontend` directory and the backend code 
 
 ## Stack
 
-- FastAPI
-- React
+- FastAPI (Python3)
+- React (TypeScript)
 - PostgreSQL
 - MarkDoc
 
